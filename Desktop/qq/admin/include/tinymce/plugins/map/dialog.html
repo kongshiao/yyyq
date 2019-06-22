@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>百度地图</title>
+<meta name="Copyright" content="Douco Design." />
+<link href="images/map.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3&services=true"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+</head>
+<body>
+<div id="map">
+ <div class="header"> <span>搜索：
+  <input type="text" id="txtarea" class="inpMain" size="45" />
+  <input type="button" id="areaSearch" value="搜索" style="cursor: pointer" />
+  </span> <span>
+  <label id="txtDynamic_label" for="txtDynamic">
+   <input id="txtDynamic" type="checkbox" name="txtDynamic" />
+   <em>插入动态地图</em> </label>
+  </span> </div>
+ <div class="content" id="container"> </div>
+ <div class="footer"> <span>纬度：
+  <input type="text" name="txtlatitude" id="txtlatitude" class="inpMain" size="15" />
+  </span> <span>经度：
+  <input type="text" name="txtLongitude" id="txtLongitude" class="inpMain" size="15" />
+  </span> <span>缩放：
+  <input type="text" name="txtZoom" id="txtZoom" class="inpMain" size="10" />
+  </span>
+  <input type="hidden" name="txtAreaCode" id="txtAreaCode" />
+ </div>
+ <script type="text/javascript"> 
+		var map = new BMap.Map("container"),
+		marker,
+		point,
+		styleStr;
+		map.centerAndZoom(new BMap.Point(117.10, 40.13), 11);
+		map.addControl(new BMap.NavigationControl());
+		map.addControl(new BMap.ScaleControl());
+		map.addControl(new BMap.OverviewMapControl());
+		map.addControl(new BMap.MapTypeControl());
+		//搜索 
+		document.getElementById("areaSearch").onclick = function() {
+						// 创建地址解析器实例 
+						var myGeo = new BMap.Geocoder();
+						var searchTxt = document.getElementById("txtarea").value;
+						// 将地址解析结果显示在地图上，并调整地图视野 
+						myGeo.getPoint(searchTxt,
+						function(point) {
+										if (point) {
+														map.centerAndZoom(point, 16);
+														document.getElementById("txtlatitude").value = point.lat;
+														document.getElementById("txtLongitude").value = point.lng;
+														document.getElementById("txtZoom").value = map.zoomLevel;
+														var pointMarker = new BMap.Point(point.lng, point.lat);
+														geocodeSearch(pointMarker);
+		
+														map.addOverlay(new BMap.Marker(point));
+										} else alert("搜索不到结果");
+						},
+						"全国");
+		}
+		map.enableScrollWheelZoom();
+		// 创建CityList对象，并放在citylist_container节点内 
+		var myCl = new BMapLib.CityList({
+						container: "citylist_container",
+						map: map
+		});
+		
+		map.addEventListener("click",
+		function(e) {
+						document.getElementById("txtlatitude").value = e.point.lat;
+						document.getElementById("txtLongitude").value = e.point.lng;
+						document.getElementById("txtZoom").value = map.zoomLevel;
+						map.clearOverlays();
+						var pointMarker = new BMap.Point(e.point.lng, e.point.lat); // 创建标注的坐标 
+						addMarker(pointMarker);
+						geocodeSearch(pointMarker);
+		});
+		
+		function addMarker(point) {
+						var myIcon = new BMap.Icon("images/icon_mark.png", new BMap.Size(21, 25), {
+										offset: new BMap.Size(21, 21),
+										imageOffset: new BMap.Size(0, -21)
+						});
+						var marker = new BMap.Marker(point, {
+										icon: myIcon
+						});
+						map.addOverlay(marker);
+		}
+		function geocodeSearch(pt) {
+						var myGeo = new BMap.Geocoder();
+						myGeo.getLocation(pt,
+						function(rs) {
+										var addComp = rs.addressComponents;
+										document.getElementById("txtAreaCode").value = addComp.province + ", " + addComp.city + ", " + addComp.district;
+						});
+		}
+ </script> 
+</div>
+</body>
+</html>

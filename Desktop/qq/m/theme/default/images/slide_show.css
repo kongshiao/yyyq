@@ -1,0 +1,93 @@
+/*
+Library: SlideShow
+Author: DouCo Co.,Ltd.
+Author URI: http://www.dou.co/
+*/
+
+/* -- slideShow -- */
+.slideShow {
+ position: relative;
+ *zoom: 1;
+}
+.slideShow .slideBox {
+ background: #fff;
+ /*fix other elements on the page moving (on Chrome)*/
+ -webkit-transform: translatez(0);
+ -moz-transform: translatez(0);
+ -ms-transform: translatez(0);
+ -o-transform: translatez(0);
+ transform: translatez(0);
+}
+.slideShow .slideBox .slides img {
+ max-width: 100%;
+ display: block;
+}
+/* -- slideLoading -- */
+.slideShow .slideLoading {
+ min-height: 50px;
+ background: url(images/slide_loader.gif) center center no-repeat #fff;
+ height: 100%;
+ width: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ z-index: 2000;
+}
+/* -- previous 和 next 按钮 -- */
+.slideShow .arrowBox a {
+ z-index: 50;
+ font-family: \5b8b\4f53, sans-serif;
+ position: absolute;
+ display: block;
+ margin-bottom: -20px;
+ width: 40px;
+ height: 40px;
+ bottom: 50%;
+ line-height: 40px;
+ text-decoration: none;
+ text-align: center;
+ color: #fff;
+ font-size: 2em;
+ background-color: #333;
+ background-color: rgba(50,50,50,.3);
+}
+.slideShow .arrowBox a.disabled {
+ display: none;
+}
+.slideShow .arrowBox .arrowPrev {
+ left: 20px;
+}
+.slideShow .arrowBox .arrowNext {
+ right: 20px;
+}
+.slideShow .arrowBox a:hover {
+ background-color: rgba(50,50,50,.6);
+}
+/* -- controlBox -- */
+.slideShow .controlBox {
+ z-index: 30;
+ position: absolute;
+ bottom: 3px;
+ width: 100%;
+ text-align: center;
+ font-size: .85em;
+ font-family: Arial;
+ font-weight: bold;
+ color: #666;
+}
+.slideShow .controlBox .control {
+ display: inline-block;
+ *zoom: 1;
+ *display: inline;
+}
+.slideShow .controlBox.controlDefault a {
+ background: url(images/inactive.png) no-repeat 50% 50%;
+ text-indent: -9999px;
+ width: 13px;
+ height: 13px;
+ clear: none;
+ display: block;
+}
+.slideShow .controlBox.controlDefault a:hover, .slideShow .controlBox.controlDefault a.active {
+ background: url(images/active.png) no-repeat 50% 50%;
+}

@@ -1,0 +1,128 @@
+/*
+Library: SlideShow
+Author: DouCo Co.,Ltd.
+Author URI: http://www.dou.co/
+*/
+
+/* -- slideShow -- */
+.slideShow {
+ position: relative;
+ *zoom: 1;
+}
+.slideShow .slides a {
+ display: block;
+ background-repeat: no-repeat;
+ background-position: center center;
+}
+.slideShow .slideBox {
+ background: #fff;
+ /*fix other elements on the page moving (on Chrome)*/
+ -webkit-transform: translatez(0);
+ -moz-transform: translatez(0);
+ -ms-transform: translatez(0);
+ -o-transform: translatez(0);
+ transform: translatez(0);
+}
+/* -- slideLoading -- */
+.slideShow .slideLoading {
+ min-height: 50px;
+ background: url(slide_loader.gif) center center no-repeat #fff;
+ height: 100%;
+ width: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ z-index: 60;
+}
+/* -- previous 和 next 按钮 -- */
+.slideShow .arrowBox a {
+ z-index: 70;
+ font-family: \5b8b\4f53, sans-serif;
+ position: absolute;
+ display: block;
+ margin-bottom: -20px;
+ width: 40px;
+ height: 40px;
+ bottom: 50%;
+ line-height: 40px;
+ text-decoration: none;
+ text-align: center;
+ color: #fff;
+ font-size: 2em;
+ background-color: #333;
+ background-color: rgba(50, 50, 50, .3);
+}
+.slideShow .arrowBox a.disabled {
+ display: none;
+}
+.slideShow .arrowBox .arrowPrev {
+ left: 20px;
+}
+.slideShow .arrowBox .arrowNext {
+ right: 20px;
+}
+.slideShow .arrowBox a:hover {
+ background-color: rgba(50, 50, 50, .6);
+}
+/* -- controlBox -- */
+.slideShow .controlBox {
+ z-index: 70;
+ position: absolute;
+ bottom: 10px;
+ width: 100%;
+ text-align: center;
+ font-size: .85em;
+ font-family: Arial;
+ font-weight: bold;
+ color: #666;
+}
+.slideShow .controlBox .control {
+ display: inline-block;
+ *zoom: 1;
+ *display: inline;
+}
+.slideShow .controlBox.controlDefault a {
+ background: url(inactive.png) no-repeat 50% 50%;
+ text-indent: -9999px;
+ overflow:hidden;
+ width: 20px;
+ height: 30px;
+ clear: none;
+ display: block;
+}
+.slideShow .controlBox.controlDefault a:hover, .slideShow .controlBox.controlDefault a.active {
+ background: url(active.png) no-repeat 50% 50%;
+}
+/* -- slideTitle -- */
+.slideShow .slideTitle {
+ z-index: 70;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ background: #666\9;
+ background: rgba(80, 80, 80, 0.75);
+ width: 100%;
+}
+.slideShow .slideTitle span {
+ color: #fff;
+ display: block;
+ font-size: .85em;
+ padding: 15px 10px;
+}
+/* -- sileThumb -- */
+.slideShow .sileThumb {
+ z-index: 70;
+ text-align: center;
+ position: absolute;
+ bottom: 8px;
+ right: 8px;
+}
+.slideShow .sileThumb a {
+ margin: 0 3px;
+}
+.slideShow .sileThumb a img {
+ border: solid #B0B0B0 1px;
+}
+.slideShow .sileThumb a.active img {
+ border: solid #19B4EA 1px;
+}

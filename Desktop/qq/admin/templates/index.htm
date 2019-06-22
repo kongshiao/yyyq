@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$lang.home}{if $ur_here} - {$ur_here} {/if}</title>
+<meta name="Copyright" content="Douco Design." />
+<link href="templates/public.css" rel="stylesheet" type="text/css">
+{include file="javascript.htm"}
+<!-- {if $rec eq 'default' && !$site.close_update} -->
+<script type="text/javascript">cloud_update_number('{$localsite}')</script>
+<!-- {/if} -->
+</head>
+<body>
+<div id="dcWrap"> {include file="header.htm"}
+ <div id="dcLeft">{include file="menu.htm"}</div>
+ <div id="dcMain"> {include file="handle.htm"}
+  <div id="index" class="mainBox" style="padding-top:18px;{$workspace.height}">
+   <!-- {if $rec eq 'default'} 起始页 -->
+   <div id="right">
+    <div class="quickMenu">
+     <h2>{$lang.quick_menu}</h2>
+     <div class="menu">
+      <dl>
+       <!-- {if $site.rewrite} -->
+       <dt><a href="system.php">{$lang.close}</a>{$lang.quick_menu_rewrite}（{$lang.opened}）</dt>
+       <!-- {else} -->
+       <dt><a href="system.php">{$lang.open}</a>{$lang.quick_menu_rewrite}（{$lang.open_no}）</dt>
+       <!-- {/if} -->
+       <dd>{$lang.quick_menu_rewrite_cue}</dd>
+      </dl>
+      <dl>
+       <!-- {if $site.captcha} -->
+       <dt><a href="system.php">{$lang.close}</a>{$lang.quick_menu_captcha}（{$lang.opened}）</dt>
+       <!-- {else} -->
+       <dt><a href="system.php">{$lang.open}</a>{$lang.quick_menu_captcha}（{$lang.open_no}）</dt>
+       <!-- {/if} -->
+       <dd>{$lang.quick_menu_captcha_cue}</dd>
+      </dl>
+      <dl>
+       <dt><a href="tool.php?rec=directory_check">{$lang.quick_menu_directory_check}</a>{$lang.quick_menu_directory}</dt>
+       <dd>{$lang.quick_menu_directory_cue}</dd>
+      </dl>
+     </div>
+    </div>
+   </div>
+   <div id="main"> 
+    <!-- {foreach from=$sys_info.folder_exists item=warning} -->
+    <div class="warning">{$warning}</div>
+    <!-- {/foreach} -->
+    <div id="douApi"></div>
+    <div class="indexBox">
+     <h2>{$lang.title_page}</h2>
+     <ul class="page">
+      <!-- {foreach from=$page_list item=page} --> 
+      <a href="page.php?rec=edit&id={$page.id}"{if $page.level gt 0} class="child{$page.level}"{/if}>{$page.page_name}</a> 
+      <!-- {/foreach} -->
+      <div class="clear"></div>
+     </ul>
+    </div>
+    <!-- {if $quick_start} -->
+    <div class="indexBox">
+     <h2><a href="index.php?rec=close_quick_start" class="close" title="{$lang.close}">X</a>{$lang.quick_start}<em>（{$lang.quick_start_cue}）</em></h2>
+     <ul class="quickStart">
+      <!-- {foreach from=$quick_start item=item} --> 
+      <li>
+       <span>
+        <em>{$item.text}</em>
+        <a href="{$item.link}"{if $item.target} target="{$item.target}"{/if}>{$lang.quick_start_do}</a>
+       </span>
+      </li>
+      <!-- {/foreach} -->
+     </ul>
+    </div>
+    <!-- {/if} -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="indexBoxTwo">
+     <tr>
+      <td width="50%" valign="top" class="pr">
+       <div class="backupBox">
+        <div class="indexBox">
+         <h2>{$lang.title_backup}</h2>
+         <div class="backup">
+          <dl>
+           <dd class="date">{$backup.new.maketime}</dd>
+           <dt>{$lang.backup_new}：{$backup.new.filename}</dt>
+           <dd class="size">{$backup.new.filesize}</dd>
+          </dl>
+          <dl class="last">
+           <dd class="date">{$backup.old.maketime}</dd>
+           <dt>{$lang.backup_old}：{$backup.old.filename}</dt>
+           <dd class="size">{$backup.old.filesize}</dd>
+          </dl>
+         </div>
+        </div>
+        <div class="prompt{if $backup.light} red{/if}">
+         <span class="text">{$lang.backup_action_cue}<em>{$backup.msg}</em></span>
+         <a href="backup.php" class="btnBackup">{$lang.backup_action_btn}</a>
+        </div>
+       </div>
+       <div class="indexBox">
+        <h2>{$lang.title_site_info}</h2>
+        <div class="siteInfo">
+         <ul>
+          <li>{$lang.num_page}：{$sys_info.num_page}</li>
+          <li>{$lang.num_article}：{$sys_info.num_article}</li>
+          <li>{$lang.num_product}：{$sys_info.num_product}</li>
+          <li>{$lang.num_product}：{$sys_info.num_product}</li>
+         </ul>
+         <ul>
+          <li>{$lang.language}：{$site.language}</li>
+          <li>{$lang.charset}：{$sys_info.charset}</li>
+          <li>{$lang.site_theme}：{$site.site_theme}</li>
+          <li>{$lang.rewrite}：<!-- {if $site.rewrite} -->{$lang.open}<!-- {else} -->{$lang.close}<a href="system.php" class="cueRed ml">{$lang.open_cue}</a> 
+             <!-- {/if} --></li>
+          <li>{$lang.if_sitemap}：<!-- {if $site.sitemap} -->{$lang.open}<!-- {else} -->{$lang.close}<!-- {/if} --></li>
+          <li>{$lang.build_date}：{$sys_info.build_date}</li>
+         </ul>
+         <ul class="last long">
+          <li>{$lang.dou_version}：{$site.douphp_version}</li>
+         </ul>
+        </div>
+       </div>
+      </td>
+      <td valign="top" class="pl">
+       <div class="indexBox">
+        <h2>{$lang.title_admin_log}<em>（{$lang.manager_log_create_time}/{$lang.manager_log_user_name}/{$lang.manager_log_ip}）</em></h2>
+        <div class="adminLog">
+         <!-- {foreach from=$log_list name=log_list item=log} -->
+         <dl{if $smarty.foreach.log_list.last} class="last"{/if}>
+          <dd class="date">{$log.ip}</dd>
+          <dt>{$log.create_time}</dt>
+          <dd class="name">{$log.user_name}</dd>
+         </dl>
+         <!-- {/foreach} -->
+        </div>
+       </div>
+       <div class="indexBox">
+        <h2>{$lang.title_sys_info}</h2>
+        <div class="siteInfo">
+         <ul>
+          <li>{$lang.php_version}：{$sys_info.php_ver}</li>
+          <li>{$lang.max_filesize}：{$sys_info.max_filesize}</li>
+          <li>{$lang.gd}：{$sys_info.gd}</li>
+          <li>{$lang.zlib}：{$sys_info.zlib}</li>
+          <li>{$lang.timezone}：{$sys_info.timezone}</li>
+          <li>{$lang.socket}：{$sys_info.socket}</li>
+         </ul>
+         <ul class="last long">
+          <li>{$lang.mysql_version}：{$sys_info.mysql_ver}</li>
+          <li>{$lang.os}：{$sys_info.os}({$sys_info.ip})</li>
+          <li>{$lang.web_server}：{$sys_info.web_server}</li>
+         </ul>
+        </div>
+       </div>
+      </td>
+     </tr>
+    </table>
+    <div class="indexBox">
+     <h2>{$lang.title_official}</h2>
+     <ul class="powered">
+      <li>{$lang.about_site}：<a href="http://www.dou.co" target="_blank">http://www.dou.co</a></li>
+      <li>{$lang.about_help}：<a href="http://help.dou.co" target="_blank">help.dou.co</a><em>（{$lang.about_help_cue}）</em></li>
+      <li>{$lang.about_contributor}：Wooyun.org, Pany, Tea</li>
+      <li>{$lang.about_license}：<a href="http://www.dou.co/license.html" target="_blank">http://www.dou.co/license.html</a><em>（您可以免费使用DouPHP（不限商用），但必须保留相关版权信息。）</em></li>
+     </ul>
+    </div>
+   </div>
+   <!-- {/if} -->
+  </div>
+ </div>
+ {include file="footer.htm"} </div>
+</body>
+</html>
