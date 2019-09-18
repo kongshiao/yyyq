@@ -45,7 +45,7 @@
 <div id="header">
  <div class="wrap">
   <ul class="logo">
-   <a href="{$site.root_url}"><img src="../images/{$site.site_logo}" alt="{$site.site_name}" title="{$site.site_name}" height="55" /></a>
+   <a href="{$site.root_url}"><img src="../images/{$site.site_logo}" alt="{$site.site_name}" title="{$site.site_name}" height="45" /></a>
   </ul>
   <ul class="mainNav">
    <li class="m"><a href="{$site.root_url}" class="nav{if $index.cur} cur{/if}">{$lang.home}</a></li>

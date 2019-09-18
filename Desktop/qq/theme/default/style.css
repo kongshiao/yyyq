@@ -21,11 +21,12 @@ body, button, input, textarea {
  margin: 0;
  padding: 0;
  border: 0;
+
 }
 a {
  text-decoration: none;
  /*color: #333333;*/
- color: #0072C6;
+ color: #077afb;
 }
 a:hover {
  color: #C70D0E;
@@ -107,7 +108,7 @@ label {
 /* -- top -- */
 #top {
  /*background-color: #EEEEEE;*/
- background-color: #293c52;
+ background-color: #b2b3b5;
  height: 30px;
  /*border-bottom: 1px solid #DDDDDD;*/
  text-align: right;
@@ -195,7 +196,7 @@ label {
  position: relative;
  z-index: 1000;
  /*border-bottom: 1px solid #DDDDDD;*/
- background: #0072C6;
+ background: #077afb;
 }
 #header .logo {
  float: left;
@@ -239,10 +240,10 @@ label {
 	font-weight: bold;
 }
 #header .mainNav .cur {
- /*background: #0072C6;*/
+ /*background: #077afb;*/
  background: #fff;
  position: relative;
- color: #0072C6;
+ color: #077afb;
 }
 /* LEVEL TWO */
 #header .mainNav ul {
@@ -254,7 +255,7 @@ label {
  left: 0;
  min-width: 100%;
  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
- /*border:1px solid #0072C6;*/
+ /*border:1px solid #077afb;*/
 }
 #header .mainNav ul li {
  _float: left;
@@ -268,14 +269,14 @@ label {
  color: #333;
 }
 #header .mainNav .hover .hover .child {
- background: #0072C6;
+ background: #077afb;
  color: #FFF;
 }
 #header .mainNav .parent {
  background: url(images/icon_main_nav.png) no-repeat 85px top;
 }
 #header .mainNav .hover .hover .parent {
- background: #0072C6 url(images/icon_main_nav.png) no-repeat 85px bottom;
+ background: #077afb url(images/icon_main_nav.png) no-repeat 85px bottom;
 }
 /* LEVEL THREE */
 #header .mainNav ul ul {
@@ -294,14 +295,14 @@ label {
  color: #333;
 }
 #header .mainNav .hover .hover .hover .children {
- background: #0072C6;
+ background: #077afb;
  color: #FFF;
 }
 /* 首页样式
 ----------------------------------------------- */
 /* -- slideShow -- */
 .slideShow .slides a {
- height: 350px;
+ height: 500px;
 }
 /* -- indexBox -- */
 #index .indexBox {
@@ -312,6 +313,11 @@ label {
 #index .indexBox.bg {
  background-color: #F5F5F5;
  padding: 35px 0;
+}
+#index .img-wrap{
+ width:100%;
+ min-width:1200px;
+height: 975px;
 }
 #index .indexBox h3 {
  color: #333;
@@ -330,12 +336,12 @@ label {
  width: 90px;
  text-align: center;
  line-height: 21px;
- background-color: #0072C6;
+ background-color: #077afb;
  color: #FFF;
  font-weight: normal;
 }
 #index .indexBox h3 .more:hover {
- background-color: #0072C6;
+ background-color: #077afb;
  text-decoration: none;
  color: #FFF;
 }
@@ -399,7 +405,7 @@ label {
 }
 #index .about h1 {
  font-size: 20px;
- color: #0072C6;
+ color: #077afb;
 }
 #index .about .desc {
  color: #666666;
@@ -412,11 +418,12 @@ label {
  width: 200px;
  text-align: left;
  padding-top: 0px;
+ position: relative;
 }
 #index .contact h2 {
  width: 70px;
  height: 30px;
- background: #0072C6 url(images/icon_contact.png) no-repeat center 12px;
+ background: #077afb url(images/icon_contact.png) no-repeat center 12px;
  color: #FFF;
  text-align: center;
  font-size: 13px;
@@ -458,7 +465,7 @@ label {
  color: #333;
  font-size: 18px;
  font-weight: bold;
- /*background: #0072C6;*/
+ /*background: #077afb;*/
  /*text-indent: 20px;*/
 }
 #page .info {
@@ -585,7 +592,7 @@ label {
  line-height: 39px;
  padding-right: 3px;
  margin-right: 6px;
- background-color: #0072C6;
+ background-color: #077afb;
  color: #fff;
  font-weight: bold;
  vertical-align: middle;
@@ -603,7 +610,7 @@ label {
  margin-bottom: 40px;
 }
 #product .productInfo .btnBuy .addToCart {
- background: #0072C6 url(images/btn_addtocart.png) no-repeat 20px 50%;
+ background: #077afb url(images/btn_addtocart.png) no-repeat 20px 50%;
  color: #FFFFFF;
  padding: 8px 25px 8px 50px;
  text-decoration: none;
@@ -623,7 +630,7 @@ label {
  font-weight: bold;
  font-size: 14px;
  border-bottom: 1px solid #CBD1D3;
- background: #0072C6;
+ background: #077afb;
  text-align: center;
  margin-top: 30px;
 }
@@ -672,7 +679,7 @@ label {
  padding-top: 12px;
 }
 #articleList .numDate em {
- background-color: #0072C6;
+ background-color: #077afb;
  color: #FFF;
  padding: 3px 4px;
  font-size: 14px;
@@ -716,7 +723,7 @@ label {
  text-align: center;
 }
 #douMsg dt {
- color: #0072C6;
+ color: #077afb;
  font-size: 16px;
  margin-bottom: 30px;
  font-weight: bold;
@@ -783,10 +790,10 @@ width:100%;
 }
 
 .treeBox li a:hover {
- color: #0072C6;
+ color: #077afb;
 }
 .treeBox li.cur {
- background-color: #0072C6;
+ background-color: #077afb;
  color: #fff;
 }
 .treeBox li.cur span,
@@ -822,7 +829,7 @@ width:100%;
  margin-right: 8px;
 }
 .screen dl dd a.cur {
- background-color: #0072C6;
+ background-color: #077afb;
  color: #FFF;
 }
 /* -- searchBox -- */
@@ -869,7 +876,7 @@ width:100%;
 /* -- form -- */
 .btn {
  display: inline-block;
- background-color: #0072C6;
+ background-color: #077afb;
  color: #EEE;
  padding: 6px 25px;
  text-transform: capitalize;
@@ -1050,7 +1057,7 @@ width:100%;
  overflow: hidden;
 }
 .onlineService #pop {
- border: 3px solid #0072C6;
+ border: 3px solid #077afb;
  background-color: #F2F2F2;
  padding: 8px;
  width: 95px;
@@ -1064,7 +1071,7 @@ width:100%;
 .onlineService .onlineQQ a {
  display: block;
  background: url(images/online_service.png) no-repeat left -160px;
- color: #0072C6;
+ color: #077afb;
  width: 82px;
  height: 24px;
  line-height: 23px;
@@ -1073,7 +1080,7 @@ width:100%;
 }
 .onlineService .onlineQQ a:hover {
  text-decoration: none;
- color: #0072C6;
+ color: #077afb;
 }
 .onlineService .service {
  border-top: 1px solid #DDDDDD;
@@ -1102,7 +1109,7 @@ width:100%;
 #footer {
  border-top: 1px solid #DDD;
  /*background-color: #F5F5F5;*/
- background-color: #293c52;
+ background-color: #077afb;
  padding: 30px 0;
  font-size: 14px;
 }
@@ -1122,5 +1129,5 @@ width:100%;
 }
 #footer .copyRight, #footer .copyRight a {
  font-family: Arial, Lucida, Verdana, Helvetica, sans-serif;
- color: #888;
+ color: #fff;
 }
