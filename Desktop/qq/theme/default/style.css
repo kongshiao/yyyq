@@ -317,7 +317,8 @@ label {
 #index .img-wrap{
  width:100%;
  min-width:1200px;
-height: 975px;
+ height: 975px;
+ background: url(images/bg_img.jpg) no-repeat center;
 }
 #index .indexBox h3 {
  color: #333;
