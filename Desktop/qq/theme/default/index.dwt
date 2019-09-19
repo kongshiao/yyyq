@@ -24,6 +24,7 @@
     {include file="inc/recommend_article.tpl"}
    </div>
   </div>
+  <div class="img-wrap"></div>
   <div class="indexBox bg">
    <div class="wrap">
     {include file="inc/about.tpl"}
